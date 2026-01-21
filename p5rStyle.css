@@ -1,0 +1,507 @@
+/* P5r style B)*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    min-height: 100vh;
+    background-image:
+        linear-gradient(45deg, rgba(230, 0, 0, 0.1) 25%, transparent 25%), 
+        linear-gradient(-45deg, rgba(230, 0, 0, 0.1) 25%, transparent 25%), 
+        linear-gradient(45deg, transparent 75%, rgba(230, 0, 0, 0.1) 75%), 
+        linear-gradient(-45deg, transparent 75%, rgba(230, 0, 0, 0.1) 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+.container{
+    max-width: 1200px;
+    margin:0 auto;
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 15px;
+    padding: 20px;
+    border: 3px solid #e60000;
+    box-shadow: 0 0 30px rgba(230, 0, 0, 0.5);
+}
+
+/* P5r Header style*/
+header{
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px;
+    background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+    border-radius: 10px;
+    border:2px solid #e60000;
+    position: relative;
+    overflow: hidden;
+}
+
+header::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #e60000, #ff4d4d, #e60000);
+    animation: slide 3s infinite linear;
+}
+
+@keyframes slide {
+    0% { background-position: -200px 0;}
+    100%{ background-position: 200px 0;}
+}
+
+header h1{
+    font-size:2.8rem;
+    margin-bottom: 15px;
+    color: #fff;
+    text-shadow: 3px 3px 0 #e60000, 6px 6px 0 rgba(230,0 0, 0.3);    
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+header p {
+    font-size: 1.2rem;
+    color: #ff4d4d;
+    font-style: italic;
+}
+
+/* Calculator Layout*/
+.calculator{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+/*P5r menu section*/
+.menu-section {
+    background: linear-gradient(145deg, #0d0d0d, #1a1a1a);
+    border-radius: 10px;
+    padding: 25px;
+    border: 2px solid #333;
+    position: relative;
+}
+
+.menu-section::before{
+    content: "MENU";
+    position: absolute;
+    top: -15px;
+    left: 20px;
+    background: #e60000;
+    color: #fff;
+    padding: 5px 15px;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: 0.9rems;
+    letter-spacing: 1px;
+}
+
+/* P5r menu items*/
+.menu-items {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.menu-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: linear-gradient(90deg, #1a1a1a, #262626);
+    border-radius: 8px;
+    border-left: 5px solid #e60000;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(230, 0, 0, 0.3);
+    background: linear-gradient(90deg, #262626, #333);
+}
+
+.item-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    color: #fff;
+}
+
+.item-number {
+    color: #e60000;
+    font-weight: bold;
+    margin-right: 10px;
+    background: rgba(230, 0, 0, 0.2);
+    padding: 2px 8px;
+    border-radius: 3px;
+}
+
+.item-desc {
+    font-size: 0.9rem;
+    color:#ccc;
+    font-style: italic;
+}
+
+.item-price {
+    font-weight: bold;
+    font-size: 1.4rem;
+    color: #fff;
+    background: rgba(230, 0, 0, 0.3);
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: 1px solid #e60000;
+}
+
+.item-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.quantity-btn {
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 50%;
+    background: #e60000;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quantity-btn:hover {
+    background: #ff3333;
+    transform: scale(1.1);
+}
+
+.quantity {
+    font-weight: bold;
+    min-width: 30px;
+    text-align: center;
+    color:#fff;
+    font-size: 1.2rem;
+}
+
+
+/*P5r Order Summary*/
+.order-summary {
+    background: linear-gradient(145deg, #0d0d0d, #1a1a1a);
+    border-radius: 10px;
+    padding: 25px;
+    border: 2px solid #333;
+    position: relative;
+}
+
+.order-summary::before {
+    content: "ORDER";
+    position: absolute;
+    top: -15px;
+    left: 20px;
+    background: #e60000;
+    color:#fff;
+    padding: 5px 15;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+/* Persona 5 Order Summary Styling */
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    border: 1px solid #333;
+    font-size: 1.1rem;
+}
+
+.summary-value {
+    color: #ff4d4d;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.total {
+    background: linear-gradient(90deg, rgba(230, 0, 0, 0.2), rgba(230, 0, 0, 0.1));
+    border: 2px solid #e60000;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.total-label {
+    font-size: 1.4rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.total-value {
+    font-size: 2rem;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 77, 77, 0.7);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { text-shadow: 0 0 10px rgba(255, 77, 77, 0.7); }
+    50% { text-shadow: 0 0 20px rgba(255, 77, 77, 1); }
+    100% { text-shadow: 0 0 10px rgba(255, 77, 77, 0.7); }
+}
+
+/* Persona 5 Tax Control */
+.tax-control {
+    margin: 25px 0;
+    padding: 20px;
+    background: rgba(26, 26, 26, 0.8);
+    border-radius: 8px;
+    border: 1px solid #444;
+}
+
+.tax-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    color: #ff4d4d;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.tax-label i {
+    font-size: 1.3rem;
+}
+
+.tax-input-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.slider {
+    flex: 1;
+    width: 100%; /* Fallback for older browsers */
+    height: 8px;
+    background: #333;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    
+    /* Remove default styling */
+    -webkit-appearance: none;  /* Safari and Chrome */
+    -moz-appearance: none;     /* Firefox */
+    appearance: none;          /* Standard */
+    
+    /* For IE10+ */
+    border: none;
+    background-color: #333;
+}
+
+/* Hide the default track in IE */
+.slider::-ms-track {
+    width: 100%;
+    height: 8px;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #e60000;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #fff;
+}
+
+#taxValue {
+    min-width: 50px;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    background: rgba(230, 0, 0, 0.3);
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+/* Persona 5 Buttons */
+.p5-button {
+    padding: 15px 25px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(145deg, #e60000, #cc0000);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.p5-button:hover {
+    background: linear-gradient(145deg, #ff3333, #e60000);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(230, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.p5-button:active {
+    transform: translateY(0);
+}
+
+.p5-button.danger {
+    background: linear-gradient(145deg, #333, #1a1a1a);
+    border-color: #e60000;
+}
+
+.p5-button.success {
+    background: linear-gradient(145deg, #00cc44, #009933);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.action-buttons button {
+    flex: 1;
+}
+
+
+/* Persona 5 Empty Cart */
+.empty-cart {
+    text-align: center;
+    padding: 50px 20px;
+    background: rgba(26, 26, 26, 0.8);
+    border-radius: 8px;
+    border: 2px dashed #444;
+}
+
+.empty-cart i {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    color: #e60000;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.empty-cart p {
+    font-size: 1.2rem;
+    color: #ccc;
+    font-style: italic;
+}
+
+/*headers p5r styel*/
+h2 {
+    color: #fff;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #e60000;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+/*headers p5r styel*/
+h2 {
+    color: #fff;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #e60000;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relaitve;
+}
+
+h2::after{
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, #e60000, transparent);
+}
+
+/* Persona 5 Tax Control Slider */
+.slider {
+    flex: 1;
+    -webkit-appearance: none;  /* For Webkit browsers (Chrome, Safari) */
+    appearance: none;          /* Standard property */
+    height: 8px;
+    background: #333;          /* Dark gray for Persona 5 theme */
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+}
+
+/* Custom thumb (the draggable part) */
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #e60000;       /* Persona 5 red */
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid #fff;    /* White border for contrast */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    transition: all 0.2s ease;
+}
+
+/* Custom thumb for Firefox */
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #e60000;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid #fff;
+    border: none;
+}
+/* Hover effect for the thumb */
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #e60000;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid #fff;
+}
+.slider::-moz-range-thumb:hover {
+    background: #ff3333;
+}
+
+}

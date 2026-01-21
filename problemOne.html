@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Order Calculator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+     <link rel="stylesheet" href="p5rStyle.css">
+</head>
+
+<body>
+<div class="container">
+    <header>
+        <h1><i class="fas fa-shopping-cart"></i> Persona 5 Order Calculator</h1>
+        <p>For Phans only</p>
+    </header>
+
+    <div class="calculator">
+        <div class="menu-section">
+            <h2>Menu Items</h2>
+            <div id="menuItems" class="menu-items">
+                <!-- 1st P5R goods -->
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3><span class="item-number">01</span> Leblanc Curry</h3>
+                        <p class="item-desc">This curry known for its robust and sweet flavor, with ingredients like grated apple, beef, and various spices</p>
+                    </div>
+                    <div class="item-price">¥880</div> 
+                    <div class="item-controls">
+                        <button class="quantity-btn minus">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn plus">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 2nd P5R goods -->
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3><span class="item-number">02</span> Phantom Burger</h3>
+                        <p class="item-desc">A burger that steals your hunger</p>
+                    </div>
+                    <div class="item-price">¥580</div> 
+                    <div class="item-controls">
+                        <button class="quantity-btn minus">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn plus">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div> 
+
+        <div class="order-summary">
+            <h2>Order Summary</h2>
+            <div id="orderdetails"></div>
+            <div id="emptyCart" class="empty-cart">
+                <i class="fas fa-shopping-basket"></i>
+                <p>Your cart is empty. Add items from the selection!</p>
+            </div>
+
+            <div id="summary" style="display:none;">
+                <div class="summary-item">
+                    <span>Subtotal:</span>
+                    <span class="summary-value" id="subtotal">¥0</span>
+                </div>
+                <div class="summary-item">
+                    <span>Tax (<span id="taxPercent">8</span>%):</span>
+                    <span class="summary-value" id="taxAmount">¥0</span>
+                </div>
+                <div class="summary-item total">
+                    <span class="total-label">TOTAL:</span>
+                    <span class="total-value" id="total">¥0</span>
+                </div>
+
+                <div class="tax-control">
+                    <div class="tax-label">
+                        <i class="fas fa-percentage"></i>
+                        <span>Tax Rate Setting</span>
+                    </div>
+                    <div class="tax-input-group">
+                        <input type="range" id="taxRate" min="0" max="20" value="8" class="slider">
+                        <span id="taxValue">8%</span>
+                        <button id="updateTax" class="p5-button">
+                            <i class="fas fa-check"></i> SET
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <button id="resetBtn" class="p5-button danger">
+                        <i class="fas fa-trash"></i> RESET ORDER
+                    </button>
+                    <button id="checkoutBtn" class="p5-button success">
+                        <i class="fas fa-check-circle"></i> CHECKOUT
+                    </button>
+                </div>
+            </div>
+        </div> 
+    </div> 
+</div> 
+
+<script src="script.js"></script>
+
+</body>
+</html>
